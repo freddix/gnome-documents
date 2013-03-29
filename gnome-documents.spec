@@ -1,11 +1,11 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.6.2
-Release:	1
+Version:	3.8.0
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	4e4a41c874b139bad0b1c3478909a5c7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	ac60339dad84c0867cc7b1c0bdf1199b
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -94,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libexecdir}/gd-tracker-gdata-miner
 
 %dir %{_libdir}/gnome-documents/girepository-1.0
+%{_libdir}/gnome-documents/girepository-1.0/Egg-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
 
@@ -107,5 +108,4 @@ rm -rf $RPM_BUILD_ROOT
 %files shell-search-provider
 %defattr(644,root,root,755)
 %{_datadir}/gnome-shell/search-providers/gnome-documents-search-provider.ini
-%attr(755,root,root) %{_libexecdir}/gnome-documents-search-provider
 
