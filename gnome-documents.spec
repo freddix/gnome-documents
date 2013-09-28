@@ -1,24 +1,24 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.8.4
+Version:	3.10.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	9ab642fe342eb3e04462fa03b9efb531
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	6db6dc396aad82e31495544dd4523ce0
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	clutter-gtk-devel
-BuildRequires:	evince-devel
+BuildRequires:	evince-devel >= 3.10.0
 BuildRequires:	gettext-devel
-BuildRequires:	gjs-devel
-BuildRequires:	gnome-desktop-devel
-BuildRequires:	gnome-online-accounts-devel
-BuildRequires:	gobject-introspection-devel
-BuildRequires:	gtk+3-devel
+BuildRequires:	gjs-devel >= 1.38.0
+BuildRequires:	gnome-desktop-devel >= 3.10.0
+BuildRequires:	gnome-online-accounts-devel >= 3.10.0
+BuildRequires:	gobject-introspection-devel >= 1.38.0
+BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	intltool
-BuildRequires:	libgdata-devel
+BuildRequires:	libgdata-devel >= 0.14.0
 BuildRequires:	liboauth-devel
 BuildRequires:	libtool
 BuildRequires:	libzapojit-devel
@@ -26,12 +26,10 @@ BuildRequires:	pkg-config
 BuildRequires:	tracker-devel
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	glib-gio-gsettings
-Requires:	evince
+Requires:	evince >= 3.10.0
 Requires:	hicolor-icon-theme
 Requires:	tracker
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_libexecdir	%{_libdir}/gnome-documents
 
 %description
 GNOME Documents is a document manager application for GNOME.
@@ -85,16 +83,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/gnome-documents
-%attr(755,root,root) %{_libdir}/gnome-documents/gd-tracker-zpj-miner
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
-%attr(755,root,root) %{_libdir}/gnome-documents/libgdminer-1.0.so
 %attr(755,root,root) %{_libdir}/gnome-documents/libgdprivate-1.0.so
 
-%dir %{_libexecdir}
-%attr(755,root,root) %{_libexecdir}/gd-tracker-gdata-miner
-
 %dir %{_libdir}/gnome-documents/girepository-1.0
-%{_libdir}/gnome-documents/girepository-1.0/Egg-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
 %{_libdir}/gnome-documents/girepository-1.0/GdPrivate-1.0.typelib
 
