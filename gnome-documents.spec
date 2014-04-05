@@ -1,35 +1,37 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.10.2
+Version:	3.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	59b2934bd2fd9a2f164368eb9317c860
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	d247f61cd865701243193e6d1bab9e6f
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	clutter-gtk-devel
-BuildRequires:	evince-devel >= 3.10.0
+BuildRequires:	evince-devel >= 3.12.0
 BuildRequires:	gettext-devel
-BuildRequires:	gjs-devel >= 1.38.0
-BuildRequires:	gnome-desktop-devel >= 3.10.0
-BuildRequires:	gnome-online-accounts-devel >= 3.10.0
-BuildRequires:	gobject-introspection-devel >= 1.38.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gjs-devel >= 1.40.0
+BuildRequires:	gnome-desktop-devel >= 3.12.0
+BuildRequires:	gnome-online-accounts-devel >= 3.12.0
+BuildRequires:	gobject-introspection-devel >= 1.40.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	intltool
 BuildRequires:	libgdata-devel >= 0.14.0
 BuildRequires:	liboauth-devel
 BuildRequires:	libtool
 BuildRequires:	libzapojit-devel
 BuildRequires:	pkg-config
-BuildRequires:	tracker-devel
+BuildRequires:	tracker-devel >= 1.0.0
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	glib-gio-gsettings
-Requires:	evince >= 3.10.0
+Requires:	evince >= 3.12.0
 Requires:	hicolor-icon-theme
-Requires:	tracker
+Requires:	tracker >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_libexecdir	%{_libdir}/%{name}
 
 %description
 GNOME Documents is a document manager application for GNOME.
@@ -66,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/gnome-documents/*.la
 
-%find_lang gnome-documents
+%find_lang gnome-documents --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,6 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-documents
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
 %attr(755,root,root) %{_libdir}/gnome-documents/libgdprivate-1.0.so
+%attr(755,root,root) %{_libexecdir}/gnome-documents-service
 
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
@@ -95,11 +98,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/*.xml
 %{_datadir}/gnome-documents
 
-%{_desktopdir}/gnome-documents.desktop
+%{_desktopdir}/org.gnome.Documents.desktop
 %{_iconsdir}/hicolor/*/*/*.png
 %{_mandir}/man1/gnome-documents.1*
 
 %files shell-search-provider
 %defattr(644,root,root,755)
-%{_datadir}/gnome-shell/search-providers/gnome-documents-search-provider.ini
+%{_datadir}/gnome-shell/search-providers/org.gnome.Documents.search-provider.ini
 
