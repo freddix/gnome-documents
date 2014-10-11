@@ -1,34 +1,34 @@
 Summary:	Document manager for GNOME
 Name:		gnome-documents
-Version:	3.12.1
+Version:	3.14.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	ac15852ebd353d91d4f82e41f66bc4d9
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-documents/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	66fe198116c6ce9d823f7b1429a40662
 URL:		https://live.gnome.org/Design/Apps/Documents
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	clutter-gtk-devel
-BuildRequires:	evince-devel >= 3.12.0
+BuildRequires:	evince-devel >= 3.14.0
 BuildRequires:	gettext-devel
-BuildRequires:	gjs-devel >= 1.40.0
-BuildRequires:	gnome-desktop-devel >= 3.12.0
-BuildRequires:	gnome-online-accounts-devel >= 3.12.0
-BuildRequires:	gobject-introspection-devel >= 1.40.0
-BuildRequires:	gtk+3-devel >= 3.12.0
+BuildRequires:	gjs-devel >= 1.42.0
+BuildRequires:	gnome-desktop-devel >= 3.14.0
+BuildRequires:	gnome-online-accounts-devel >= 3.14.0
+BuildRequires:	gobject-introspection-devel >= 1.42.0
+BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	intltool
 BuildRequires:	libgdata-devel >= 0.14.0
 BuildRequires:	liboauth-devel
 BuildRequires:	libtool
 BuildRequires:	libzapojit-devel
 BuildRequires:	pkg-config
-BuildRequires:	tracker-devel >= 1.0.0
+BuildRequires:	tracker-devel >= 1.2.0
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	glib-gio-gsettings
-Requires:	evince >= 3.12.0
+Requires:	evince >= 3.14.0
 Requires:	hicolor-icon-theme
-Requires:	tracker >= 1.0.0
+Requires:	tracker >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/%{name}
@@ -88,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gnome-documents
 %attr(755,root,root) %{_libdir}/gnome-documents/libgd.so
 %attr(755,root,root) %{_libdir}/gnome-documents/libgdprivate-1.0.so
-%attr(755,root,root) %{_libexecdir}/gnome-documents-service
 
 %dir %{_libdir}/gnome-documents/girepository-1.0
 %{_libdir}/gnome-documents/girepository-1.0/Gd-1.0.typelib
